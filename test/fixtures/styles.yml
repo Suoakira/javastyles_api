@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  top_front_url: MyString
+  top_back_url: MyString
+  bottom_front_url: MyString
+  bottom_back_url: MyString
+  shoe_url: MyString
+  likes: 1
+
+two:
+  top_front_url: MyString
+  top_back_url: MyString
+  bottom_front_url: MyString
+  bottom_back_url: MyString
+  shoe_url: MyString
+  likes: 1
