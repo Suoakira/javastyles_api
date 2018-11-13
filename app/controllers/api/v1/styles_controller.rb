@@ -3,4 +3,27 @@ class Api::V1::StylesController < ApplicationController
     @styles = Style.all
     render json: @styles
   end
+
+    def show
+      @style = Style.find_by(id: params[:id])
+      if @style
+        render json: @style
+      else
+        render json: {error: 'Style not found.'}, status: 400
+      end
+    end
+
+    def create
+      @style = Style.new(style_params)
+      if @style.save
+        render json: @style
+      else
+        render json: {error: 'Unable to create style.'}, status: 400
+      end
+    end
+
+    private
+    def style_params
+      params.require(:style).permit(:top_front_url, :top_back_url, :bottom_front_url, :bottom_back_url, :shoe_url, :likes)
+    end
 end
