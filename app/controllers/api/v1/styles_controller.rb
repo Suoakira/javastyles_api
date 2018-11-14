@@ -22,6 +22,15 @@ class Api::V1::StylesController < ApplicationController
       end
     end
 
+    def update
+      @style = Style.find_by(id: params[:id])
+      if @style.update(style_params)
+        render json: @style
+      else
+        render json: {error: 'Unable to update style.'}, status: 400
+      end
+    end
+
     private
     def style_params
       params.require(:style).permit(:top_front_url, :top_back_url, :bottom_front_url, :bottom_back_url, :shoe_url, :likes)
